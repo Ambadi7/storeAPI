@@ -8,7 +8,7 @@ const Product = ({item}) => {
   
 
   return (
-    <div className='flex flex-col w-[400px] bg-slate-800 rounded-md h-[365px] py-3 justify-between'>
+    <div className='flex flex-col w-[400px] bg-slate-800 rounded-md h-[365px] py-3 justify-between' key={item.id}>
         <div className='flex flex-col gap-1 items-center w-full px-4' >
             <div className='flex justify-center items-center w-[170px] h-[170px] bg-white rounded-xl'>
                 <img  className='h-38 w-38 object-contain' src={item.image}></img>
