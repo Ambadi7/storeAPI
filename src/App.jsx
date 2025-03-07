@@ -23,7 +23,7 @@ function App() {
           <h1 className="text-2xl font-semibold">All Products</h1>
         </div>
         <div className="bg-gray-300 w-full min-h-screen py-6">
-          <div className="flex flex-wrap gap-6  w-auto h-full mx-12">
+          <div className="flex flex-wrap gap-6  w-auto h-full mx-2 md:mx-12">
             {
               product.map((item)=>{
 
