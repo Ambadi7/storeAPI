@@ -28,7 +28,7 @@ function App() {
               product.map((item)=>{
 
                 return(
-                  <div>
+                  <div key={item.id}>
                     <Product item={item}/>
                   </div>
                     
