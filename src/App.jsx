@@ -1,48 +1,18 @@
-import { useState } from "react"
-import Product from "./components/Product"
-import axios from "axios"
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import ProductsPage from "./pages/ProductsPage";
+import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/CheckoutPage";
 
-
-function App() {
-  const [product,setProduct] = useState([])
-  
-  const fetchData = async()=>{
-    const{data} =await axios.get(`https://fakestoreapi.com/products`)
-     console.log(data)
-    setProduct(data)
-  }
-  useState(()=>{
-    fetchData()
-  })
-
-  
+export default function App() {
   return (
-    <>
-      <div>
-        <div className="flex h-16 w-full bg-slate-900 text-white justify-center items-center">
-          <h1 className="text-2xl font-semibold">All Products</h1>
-        </div>
-        <div className="bg-gray-300 w-full min-h-screen py-6">
-          <div className="flex flex-wrap gap-6  w-auto h-full mx-2 md:mx-12">
-            {
-              product.map((item)=>{
-
-                return(
-                  <div key={item.id}>
-                    <Product item={item}/>
-                  </div>
-                    
-  
-                )
-              })
-            } 
-          </div>
-
-        </div>
-      </div>
-      
-    </>
-  )
+    <div className="min-h-screen bg-gray-50">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<ProductsPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+      </Routes>
+    </div>
+  );
 }
-
-export default App
